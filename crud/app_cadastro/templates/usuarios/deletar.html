@@ -1,0 +1,31 @@
+{% extends 'usuarios/base.html' %}
+
+{% block conteudo %}
+<style type="text/css">
+div {
+    padding: 10px;
+    border: 20px;
+}
+.tudao {
+    padding: 30px;
+    border: 100px;
+}
+h1 {
+    padding: 20px;
+}
+button {
+    padding: 10px;
+}
+</style>
+
+<div class="tudao">
+    <form action="{% url 'aviso_usuario' %}" method="post">
+        {% csrf_token %}
+        <div style="text-align: center;" class="container">
+            <h1 style="color: red">Informe o ID</h1>
+            ID: <input name="id_usr" class="form-control-sm" type="text">
+            <button style="color: red" class="form-control-sm">Enviar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

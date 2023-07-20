@@ -1,0 +1,45 @@
+{% extends 'usuarios/base.html' %}
+
+{% block conteudo %}
+<style type="text/css">
+div {
+    padding: 10px;
+    border: 20px;
+}
+.tudao {
+    padding: 30px;
+    border: 100px;
+}
+h1 {
+    padding: 20px;
+}
+button {
+    padding: 10px;
+}
+</style>
+
+<div class="tudao">
+    <form action="{% url 'cadastro' %}" method="post">
+        {% csrf_token %}
+        <div style="text-align: center;" class="container">
+            <h1 style="color: black">Informe o usuario e a senha</h1>
+            <div>
+                Usuario <input name="adm" class="form-control-sm" type="text">
+            </div>
+            Senha <input name="senha" class="form-control-sm" type="text">
+            <div>
+                <button style="color: black" class="form-control-sm">Enviar</button>
+            </div>
+        </div>
+    </form>
+    <div style="text-align: center;" class="container">
+        <form action='{% url 'lista_usuarios' %}' method="post">
+            {% csrf_token %}
+            <h3>Veja o historico aqui</h3>
+            <div class="container">
+                <button class="form-control-sm">Lista de usuarios</button>
+            </div>   
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'usuarios/base.html' %}
+
+{% block conteudo %}
+<style type="text/css">
+div {
+    padding: 10px;
+    border: 20px;
+}
+.tudao {
+    padding: 30px;
+    border: 100px;
+}
+h1 {
+    padding: 20px;
+}
+button {
+    padding: 10px;
+}
+</style>
+
+<div class="tudao">
+    <form action="{% url 'tela_confirma' %}" method="post">
+        {% csrf_token %}
+        <div style="text-align: center;" class="container">
+            <h1 style="color: black">Informe o ID do usuário</h1>
+            <div>
+                ID: <input name="id_usr" class="form-control-sm" type="text">
+            </div>
+            <h3>Informe os dados atualizados</h3>
+            <div>
+                Nome <input name="novo_nome" class="form-control-sm" type="text">
+            </div>
+            Idade <input name="nova_idade" class="form-control-sm" type="text">
+            <div>
+                <button style="color: black" class="form-control-sm">Enviar</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

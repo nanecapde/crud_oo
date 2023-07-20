@@ -1,0 +1,62 @@
+{% extends 'usuarios/base.html' %}
+
+{% block conteudo %}
+<style type="text/css">
+div {
+    padding: 10px;
+    border: 20px;
+}
+.tudao {
+    padding: 30px;
+    border: 100px;
+}
+h1 {
+    padding: 20px;
+}
+h3 {
+    padding: 15px;
+}
+button {
+    padding: 10px;
+}
+</style>
+
+<div class="tudao">
+    <form action="{% url 'listagem_usuarios' %}" method="post">
+        {% csrf_token %}
+        <div style="text-align: center;" class="container">
+            <h1> Cadastro de usuario </h1>
+            <div>
+                Nome <input name="nome" class="form-control-sm" type="text">
+            </div>
+            Idade <input name="idade" class="form-control-sm" type="text">
+            <div>
+                <button class="form-control-sm">Enviar</button>
+            </div>
+        </div>
+    </form>
+    <div style="text-align: center;" class="container">
+        <h3> Operações </h3>
+        <form action='{% url 'deletar_usuario' %}' method="post">
+            {% csrf_token %}
+            <div class="container">
+                <button class="form-control-sm">Remover usuário</button>
+            </div>
+        </form>
+
+        <form action='{% url 'lista_usuarios' %}' method="post">
+            {% csrf_token %}
+            <div class="container">
+                <button class="form-control-sm">Lista de usuarios</button>
+            </div>   
+        </form>
+
+        <form action='{% url 'atualiza_usuario' %}' method="post">
+            {% csrf_token %}
+            <div class="container">
+                <button class="form-control-sm">Atualizar dados</button>
+            </div>   
+        </form>
+    </div>
+</div>
+{% endblock %}
