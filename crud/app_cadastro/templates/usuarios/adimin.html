@@ -16,28 +16,47 @@ h1 {
 button {
     padding: 10px;
 }
+.usuario1{
+    margin-left: -10px;
+    align-items: center;
+    display: flex;
+    width: 260px;
+    justify-content: space-between; 
+}
+.usuario{
+    margin-left: 0px;
+    align-items: center;
+    display: flex;
+    width: 260px;
+    justify-content: space-between; 
+}
+
 </style>
 
 <div class="tudao">
     <form action="{% url 'cadastro' %}" method="post">
         {% csrf_token %}
-        <div style="text-align: center;" class="container">
+        <div style="text-align: left;" class="container">
             <h1 style="color: black">Informe o usuario e a senha</h1>
             <div>
-                Usuario <input name="adm" class="form-control-sm" type="text">
+            <div class="usuario1">
+            <p>Usuario</p> <input name="adm" class="form-control-sm" type="text">
             </div>
-            Senha <input name="senha" class="form-control-sm" type="text">
+            </div>
+            <div class="usuario">
+            <p1>Senha</p1> <input name="senha" class="form-control-sm" type="text">
+            </div>
             <div>
                 <button style="color: black" class="form-control-sm">Enviar</button>
             </div>
         </div>
     </form>
-    <div style="text-align: center;" class="container">
+    <div style="text-align: left;" class="container">
         <form action='{% url 'lista_usuarios' %}' method="post">
             {% csrf_token %}
             <h3>Veja o historico aqui</h3>
             <div class="container">
-                <button class="form-control-sm">Lista de usuarios</button>
+                <button class="form-control-sm">Lista de maquiagem</button>
             </div>   
         </form>
     </div>

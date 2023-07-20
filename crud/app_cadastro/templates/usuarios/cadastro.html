@@ -24,30 +24,30 @@ button {
 <div class="tudao">
     <form action="{% url 'listagem_usuarios' %}" method="post">
         {% csrf_token %}
-        <div style="text-align: center;" class="container">
-            <h1> Cadastro de usuario </h1>
+        <div style="text-align: left;" class="container">
+            <h1> Cadastro de maquiagem </h1>
             <div>
-                Nome <input name="nome" class="form-control-sm" type="text">
+                Tipo <input name="nome" class="form-control-sm" type="text">
             </div>
-            Idade <input name="idade" class="form-control-sm" type="text">
+                Preco <input name="idade" class="form-control-sm" type="text">
             <div>
                 <button class="form-control-sm">Enviar</button>
             </div>
         </div>
     </form>
-    <div style="text-align: center;" class="container">
+    <div style="text-align: left;" class="container">
         <h3> Operações </h3>
         <form action='{% url 'deletar_usuario' %}' method="post">
             {% csrf_token %}
             <div class="container">
-                <button class="form-control-sm">Remover usuário</button>
+                <button class="form-control-sm">Remover maquiagem</button>
             </div>
         </form>
 
         <form action='{% url 'lista_usuarios' %}' method="post">
             {% csrf_token %}
             <div class="container">
-                <button class="form-control-sm">Lista de usuarios</button>
+                <button class="form-control-sm">Lista de maquiagens</button>
             </div>   
         </form>
 
